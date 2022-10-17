@@ -1,1 +1,204 @@
+/*SELECT drp.time_id,
+       COUNT(DISTINCT e.user_id) AS weekly_active_users
+  FROM benn.dimension_rollup_periods drp
+  LEFT JOIN tutorial.yammer_events e
+    ON e.occurred_at >= drp.pst_start
+   AND e.occurred_at < drp.pst_end
+   AND e.event_type = 'engagement'
+   AND e.event_name = 'login'
+ WHERE drp.period_id = 1007
+   AND drp.time_id >= '2014-06-01'
+   AND drp.time_id < '2014-09-01'
+ GROUP BY 1
+ ORDER BY 1*/
+ 
+ /*Select language,
+      COUNT(DISTINCT language) AS language
+ FROM tutorial.yammer_users
+ GROUP BY 1*/
+ 
+ /*SELECT COUNT(CASE WHEN language ='arabic' THEN 1 ELSE NULL END) AS ara,
+        COUNT(CASE WHEN language ='chinese' THEN 1 ELSE NULL END) AS chi,
+        COUNT(CASE WHEN language ='english' THEN 1 ELSE NULL END) AS eng,
+        COUNT(CASE WHEN language ='french' THEN 1 ELSE NULL END) AS fre,
+        COUNT(CASE WHEN language ='german' THEN 1 ELSE NULL END) AS ger,
+        COUNT(CASE WHEN language ='indian' THEN 1 ELSE NULL END) AS ind,
+        COUNT(CASE WHEN language ='italian' THEN 1 ELSE NULL END) AS ita,
+        COUNT(CASE WHEN language ='japanese' THEN 1 ELSE NULL END) AS jap,
+        COUNT(CASE WHEN language ='korean' THEN 1 ELSE NULL END) AS kor,
+        COUNT(CASE WHEN language ='portugese' THEN 1 ELSE NULL END) AS por,
+        COUNT(CASE WHEN language ='russian' THEN 1 ELSE NULL END) AS rus,
+        COUNT(CASE WHEN language ='spanish' THEN 1 ELSE NULL END) AS spa
+    FROM tutorial.yammer_users*/
+    
+/*SELECT *
+FROM tutorial.yammer_events*/
 
+/*SELECT DATE_TRUNC('week',occurred_at) AS week,
+       COUNT(CASE WHEN event_name ='complete_signup' THEN 1 ELSE NULL END) AS signup,
+       COUNT(CASE WHEN event_name ='create_user' THEN 1 ELSE NULL END) AS create,
+       COUNT(CASE WHEN event_name ='enter_email' THEN 1 ELSE NULL END) AS give_email,
+       COUNT(CASE WHEN event_name ='enter_info' THEN 1 ELSE NULL END) AS give_info,
+       COUNT(CASE WHEN event_name ='home_page' THEN 1 ELSE NULL END) AS home,
+       COUNT(CASE WHEN event_name ='like_message' THEN 1 ELSE NULL END) AS like,
+       COUNT(CASE WHEN event_name ='login' THEN 1 ELSE NULL END) AS login,
+       COUNT(CASE WHEN event_name ='search_autocomplete' THEN 1 ELSE NULL END) AS search_autocomplete,
+       COUNT(CASE WHEN event_name ='search_click_result_1' THEN 1 ELSE NULL END) AS search_1,
+       COUNT(CASE WHEN event_name ='search_click_result_2' THEN 1 ELSE NULL END) AS search_2,
+       COUNT(CASE WHEN event_name ='search_click_result_3' THEN 1 ELSE NULL END) AS search_3,
+       COUNT(CASE WHEN event_name ='search_click_result_4' THEN 1 ELSE NULL END) AS search_4,
+       COUNT(CASE WHEN event_name ='search_click_result_5' THEN 1 ELSE NULL END) AS search_5,
+       COUNT(CASE WHEN event_name ='search_click_result_6' THEN 1 ELSE NULL END) AS search_6,
+       COUNT(CASE WHEN event_name ='search_click_result_7' THEN 1 ELSE NULL END) AS search_7,
+       COUNT(CASE WHEN event_name ='search_click_result_8' THEN 1 ELSE NULL END) AS search_8,
+       COUNT(CASE WHEN event_name ='search_click_result_9' THEN 1 ELSE NULL END) AS search_9,
+       COUNT(CASE WHEN event_name ='search_click_result_10' THEN 1 ELSE NULL END) AS search_10,
+       COUNT(CASE WHEN event_name ='search_run' THEN 1 ELSE NULL END) AS search_run,
+       COUNT(CASE WHEN event_name ='send_message' THEN 1 ELSE NULL END) AS send,
+       COUNT(CASE WHEN event_name ='view_inbox' THEN 1 ELSE NULL END) AS inbox
+  FROM tutorial.yammer_events
+    WHERE occurred_at >= '2014-06-01' AND occurred_at < '2014-09-01'
+    GROUP BY 1 ORDER BY 1*/
+    
+/*Select event_name,
+      COUNT(DISTINCT event_name) AS activity
+ FROM tutorial.yammer_events
+ GROUP BY 1*/
+ 
+ /*SELECT *
+ FROM benn.dimension_rollup_periods*/
+ 
+/*SELECT drp.time_id,
+       COUNT(DISTINCT e.user_id) AS weekly_active_users,
+       COUNT(CASE WHEN location = 'Argentina' THEN 1 ELSE NULL END) AS Argentina,
+       COUNT(CASE WHEN location = 'Australia' THEN 1 ELSE NULL END) AS Australia,
+       COUNT(CASE WHEN location = 'Austria' THEN 1 ELSE NULL END) AS Austria,
+       COUNT(CASE WHEN location = 'Belgium' THEN 1 ELSE NULL END) AS Belgium,
+       COUNT(CASE WHEN location = 'Brazil' THEN 1 ELSE NULL END) AS Brazil,
+       COUNT(CASE WHEN location = 'Canada' THEN 1 ELSE NULL END) AS Canada,
+       COUNT(CASE WHEN location = 'Chile' THEN 1 ELSE NULL END) AS Chile,
+       COUNT(CASE WHEN location = 'Colombia' THEN 1 ELSE NULL END) AS Colombia,
+       COUNT(CASE WHEN location = 'Denmark' THEN 1 ELSE NULL END) AS Denmark,
+       COUNT(CASE WHEN location = 'Egypt' THEN 1 ELSE NULL END) AS Egypt,
+       COUNT(CASE WHEN location = 'Finland' THEN 1 ELSE NULL END) AS Finland,
+       COUNT(CASE WHEN location = 'France' THEN 1 ELSE NULL END) AS France,
+       COUNT(CASE WHEN location = 'Germany' THEN 1 ELSE NULL END) AS Germany,
+       COUNT(CASE WHEN location = 'Greece' THEN 1 ELSE NULL END) AS Greece,
+       COUNT(CASE WHEN location = 'Hong Kong' THEN 1 ELSE NULL END) AS "Hong Kong",
+       COUNT(CASE WHEN location = 'India' THEN 1 ELSE NULL END) AS India,
+       COUNT(CASE WHEN location = 'Indonesia' THEN 1 ELSE NULL END) AS Indonesia,
+       COUNT(CASE WHEN location = 'Iran' THEN 1 ELSE NULL END) AS Iran,
+       COUNT(CASE WHEN location = 'Iraq' THEN 1 ELSE NULL END) AS Iraq,
+       COUNT(CASE WHEN location = 'Ireland' THEN 1 ELSE NULL END) AS Ireland,
+       COUNT(CASE WHEN location = 'Israel' THEN 1 ELSE NULL END) AS Israel,
+       COUNT(CASE WHEN location = 'Italy' THEN 1 ELSE NULL END) AS Italy,
+       COUNT(CASE WHEN location = 'Japan' THEN 1 ELSE NULL END) AS Japan,
+       COUNT(CASE WHEN location = 'Korea' THEN 1 ELSE NULL END) AS Korea,
+       COUNT(CASE WHEN location = 'Malaysia' THEN 1 ELSE NULL END) AS Malaysia,
+       COUNT(CASE WHEN location = 'Mexico' THEN 1 ELSE NULL END) AS Mexico,
+       COUNT(CASE WHEN location = 'Netherlands' THEN 1 ELSE NULL END) AS Netherlands,
+       COUNT(CASE WHEN location = 'Nigeria' THEN 1 ELSE NULL END) AS Nigeria,
+       COUNT(CASE WHEN location = 'Norway' THEN 1 ELSE NULL END) AS Norway,
+       COUNT(CASE WHEN location = 'Pakistan' THEN 1 ELSE NULL END) AS Pakistan,
+       COUNT(CASE WHEN location = 'Philippines' THEN 1 ELSE NULL END) AS Philippines,
+       COUNT(CASE WHEN location = 'Poland' THEN 1 ELSE NULL END) AS Poland,
+       COUNT(CASE WHEN location = 'Portugal' THEN 1 ELSE NULL END) AS Portugal,
+       COUNT(CASE WHEN location = 'Russia' THEN 1 ELSE NULL END) AS Russia,
+       COUNT(CASE WHEN location = 'Saudi Arabia' THEN 1 ELSE NULL END) AS "Saudi Arabia",
+       COUNT(CASE WHEN location = 'Singapore' THEN 1 ELSE NULL END) AS Singapore,
+       COUNT(CASE WHEN location = 'South Africa' THEN 1 ELSE NULL END) AS "South Africa",
+       COUNT(CASE WHEN location = 'Spain' THEN 1 ELSE NULL END) AS Spain,
+       COUNT(CASE WHEN location = 'Sweden' THEN 1 ELSE NULL END) AS Sweden,
+       COUNT(CASE WHEN location = 'Switzerland' THEN 1 ELSE NULL END) AS Switzerland,
+       COUNT(CASE WHEN location = 'Taiwan' THEN 1 ELSE NULL END) AS Taiwan,
+       COUNT(CASE WHEN location = 'Thailand' THEN 1 ELSE NULL END) AS Thailand,
+       COUNT(CASE WHEN location = 'Turkey' THEN 1 ELSE NULL END) AS Turkey,
+       COUNT(CASE WHEN location = 'United Arab Emirates' THEN 1 ELSE NULL END) AS "United Arab Emirates",
+       COUNT(CASE WHEN location = 'United Kingdom' THEN 1 ELSE NULL END) AS "United Kingdom",
+       COUNT(CASE WHEN location = 'United States' THEN 1 ELSE NULL END) AS "United States",
+       COUNT(CASE WHEN location = 'Venezuela' THEN 1 ELSE NULL END) AS Venezuela
+FROM benn.dimension_rollup_periods drp
+  LEFT JOIN tutorial.yammer_events e
+    ON e.occurred_at >= drp.pst_start
+   AND e.occurred_at < drp.pst_end
+   AND e.event_type = 'engagement'
+   AND e.event_name = 'login'
+ WHERE drp.period_id = 1007
+   AND drp.time_id >= '2014-06-01'
+   AND drp.time_id < '2014-09-01'
+ GROUP BY 1
+ ORDER BY 1*/
+ 
+ /*Select location,
+      COUNT(location) AS loc_events
+ FROM tutorial.yammer_events
+ GROUP BY 1*/
+ 
+/*SELECT drp.time_id,
+       COUNT(DISTINCT e.user_id) AS weekly_active_users,
+       COUNT(CASE WHEN location IN ('Argentina', 'Brazil', 'Chile', 'Colombia', 'Philippines', 'Venezuela') THEN 1 ELSE NULL END) AS South_America,
+       COUNT(CASE WHEN location IN ('Australia') THEN 1 ELSE NULL END) AS Oceania,
+       COUNT(CASE WHEN location IN ('Austria', 'Belgium', 'Denmark', 'Finland', 'France', 'Germany', 'Greece', 'Portugal', 'Ireland', 'Italy', 
+                  'Netherlands', 'Norway', 'Poland', 'Russia', 'Spain', 'Sweeden', 'Switzerland', 'United Kingdom') THEN 1 ELSE NULL END) AS Europe,
+       COUNT(CASE WHEN location IN ('Canada', 'United States', 'Mexico') THEN 1 ELSE NULL END) AS North_America,
+       COUNT(CASE WHEN location IN ('Egypt', 'India', 'Iran', 'Iraq', 'Israel', 'Pakistan', 'Saudi Arabia', 'Turkey', 'United Arab Emirates') THEN 1 ELSE NULL END) AS Middle_East,
+       COUNT(CASE WHEN location IN ('Hong Kong', 'Indonesia', 'Japan', 'Korea', 'Malaysia', 'Singapore', 'Taiwan', 'Thailand') THEN 1 ELSE NULL END) AS Asia,
+       COUNT(CASE WHEN location IN ('Nigeria', 'South Africa') THEN 1 ELSE NULL END) AS Africa
+FROM benn.dimension_rollup_periods drp
+  LEFT JOIN tutorial.yammer_events e
+    ON e.occurred_at >= drp.pst_start
+   AND e.occurred_at < drp.pst_end
+   AND e.event_type = 'engagement'
+   AND e.event_name = 'login'
+ WHERE drp.period_id = 1007
+   AND drp.time_id >= '2014-06-01'
+   AND drp.time_id < '2014-09-01'
+ GROUP BY 1
+ ORDER BY 1*/
+ 
+ /*SELECT DATE_TRUNC('week',occurred_at) AS week,
+       COUNT(CASE WHEN event_name IN ('complete_signup', 'create_user', 'enter_email', 'enter_info') THEN 1 ELSE NULL END) AS signup_flow,
+       COUNT(CASE WHEN event_name ='home_page' THEN 1 ELSE NULL END) AS homepage_visit,
+       COUNT(CASE WHEN event_name ='login' THEN 1 ELSE NULL END) AS login,
+       COUNT(CASE WHEN event_name IN ('like_message', 'send-message', 'view_inbox') THEN 1 ELSE NULL END) AS message_and_inbox,
+       COUNT(CASE WHEN event_name ='search_run' THEN 1 ELSE NULL END) AS search_run,
+       COUNT(CASE WHEN event_name ='search_autocomplete' THEN 1 ELSE NULL END) AS search_autocomplete,
+       COUNT(CASE WHEN event_name IN('search_click_result_1', 'search_click_result_2', 'search_click_result_3', 'search_click_result_4', 'search_click_result_5', 
+        'search_click_result_6', 'search_click_result_7', 'search_click_result_8', 'search_click_result_9', 'search_click_result_10') THEN 1 ELSE NULL END) AS search_clicks
+  FROM tutorial.yammer_events
+    WHERE occurred_at >= '2014-06-01' AND occurred_at < '2014-09-01'
+    GROUP BY 1 ORDER BY 1*/
+    
+/*SELECT DATE_TRUNC('week',occurred_at) AS week,
+       COUNT(CASE WHEN action ='sent_weekly_digest' THEN 1 ELSE NULL END) AS sent_digest,
+       COUNT(CASE WHEN action ='email_open' THEN 1 ELSE NULL END) AS opened_email,
+       COUNT(CASE WHEN action ='email_clickthrough' THEN 1 ELSE NULL END) AS click_link,
+       COUNT(CASE WHEN action ='sent_reengagement_email' THEN 1 ELSE NULL END) AS reengage_sent
+  FROM tutorial.yammer_emails
+    WHERE occurred_at >= '2014-06-01' AND occurred_at < '2014-09-01'
+    GROUP BY 1 ORDER BY 1*/
+    
+/*SELECT action,
+  COUNT(DISTINCT action) AS action
+  FROM tutorial.yammer_emails
+    WHERE occurred_at >= '2014-06-01' AND occurred_at < '2014-09-01'
+    GROUP BY 1*/
+    
+/*SELECT DATE_TRUNC('week',occurred_at) AS week,
+       COUNT(CASE WHEN event_name ='search_run' THEN 1 ELSE NULL END) AS search_run,
+       COUNT(CASE WHEN event_name ='search_autocomplete' THEN 1 ELSE NULL END) AS search_autocomplete,
+       COUNT(CASE WHEN event_name ='search_click_result_1' THEN 1 ELSE NULL END) AS result_1,
+       COUNT(CASE WHEN event_name ='search_click_result_2' THEN 1 ELSE NULL END) AS result_2,
+       COUNT(CASE WHEN event_name ='search_click_result_3' THEN 1 ELSE NULL END) AS result_3,
+       COUNT(CASE WHEN event_name ='search_click_result_4' THEN 1 ELSE NULL END) AS result_4,
+       COUNT(CASE WHEN event_name ='search_click_result_5' THEN 1 ELSE NULL END) AS result_5,
+       COUNT(CASE WHEN event_name ='search_click_result_6' THEN 1 ELSE NULL END) AS result_6,
+       COUNT(CASE WHEN event_name ='search_click_result_7' THEN 1 ELSE NULL END) AS result_7,
+       COUNT(CASE WHEN event_name ='search_click_result_8' THEN 1 ELSE NULL END) AS result_8,
+       COUNT(CASE WHEN event_name ='search_click_result_9' THEN 1 ELSE NULL END) AS result_9,
+       COUNT(CASE WHEN event_name ='search_click_result_10' THEN 1 ELSE NULL END) AS result_10,
+       SUM('search_run' - ('result_1'+'result_2'+'result_3'+'result_4'+'result_5'+
+       'result_6'+'result_7'+'result_8'+'result_9'+'result_10')) AS no_clicks
+  FROM tutorial.yammer_events
+    WHERE occurred_at >= '2014-06-01' AND occurred_at < '2014-09-01'
+    GROUP BY 1 ORDER BY 1*/
